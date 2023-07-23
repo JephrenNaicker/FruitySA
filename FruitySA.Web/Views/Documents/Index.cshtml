@@ -1,0 +1,47 @@
+﻿@model IEnumerable<FruitySA.Web.Models.Document>
+
+@{
+    ViewData["Title"] = "List of Files Upload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Files Upload</h1>
+
+<p>
+    <a asp-action="FileUpload" class="btn btn-outline-secondary"><i class="bi bi-upload"></i> Upload File</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ExcelDocumentPath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserUploaded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExcelDateupload)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExcelDocumentPath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserUploaded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExcelDateupload)
+            </td>
+            <td>
+                    <a asp-action="Download" class="btn btn-primary" asp-route-id="@item.DocumentId"><i class="bi bi-download"></i> Download</a> |
+                    <a asp-action="Delete" class="btn btn-primary"  asp-route-id="@item.DocumentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
