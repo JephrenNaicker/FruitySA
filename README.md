@@ -4,7 +4,9 @@
 
 Before starting the application, </br>
 
-Please, change the connection string, before proceeding </br>
+Please, change the connection string, before proceeding in both project folder</br>
+
+`<YourServer>`
 
 Please use the following nuget commands if needed.
 
